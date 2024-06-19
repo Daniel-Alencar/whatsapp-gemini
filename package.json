@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "16"
+  },
   "scripts": {
-    "start": "node --watch ."
+    "start": "node --watch dist/index.js",
+    "build": "npm run clean && npm run copy",
+    "clean": "rm -rf dist",
+    "copy": "cp -r src dist && cp -r public dist"
   },
   "keywords": [],
   "author": "",
