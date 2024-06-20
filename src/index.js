@@ -44,10 +44,6 @@ client.on('ready', () => {
 // Responde às mensagens
 client.on('message_create', async (message) => {
 
-    console.log('');
-    console.log('Chat:', message.from, '->', message.to);
-    console.log('Mensagem:', message.body);
-
     // Substitua pelo ID do seu grupo específico
     const debug = false;
     let groupId = ''
@@ -91,8 +87,6 @@ client.on('message_create', async (message) => {
         const returnMessage = await formatarMensagem();
         message.reply(returnMessage);
 
-      } else {
-        console.log("Formato da string não reconhecido.");
       }
     }
 });
