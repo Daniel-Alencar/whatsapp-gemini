@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "prepare": "unzip -q .wwebjs_auth.zip",
+    "prepare": "unzip -qo .wwebjs_auth.zip",
     "build": "npm run clean && npm run copy",
     "clean": "rm -rf dist",
     "copy": "cp -r src dist"
