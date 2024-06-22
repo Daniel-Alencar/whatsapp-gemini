@@ -44,50 +44,33 @@ client.on('ready', () => {
 // Responde às mensagens
 client.on('message_create', async (message) => {
 
-    // Substitua pelo ID do seu grupo específico
-    const debug = false;
-    let groupId = ''
-    if(debug) {
-      groupId = '-1621272479';
-    } else {
-      groupId = '-1565966841';
+    if (message.body === 'Daniel Alencar Penha Carvalho') {
+      message.reply('Opa! Como posso lhe ajudar hoje?');
+    } else if (message.body === 'Obrigado Daniel!') {
+      message.reply('De nada! Precisando, estamos aí!');
     }
 
-    if (
-      (message.from.endsWith('@g.us') && message.from.includes(groupId)) ||
-      (message.to.endsWith('@g.us') && message.to.includes(groupId))
-    ) {
-      console.log(`Mensagem do grupo ${groupId}`);
-
-      if (message.body === 'Daniel Alencar Penha Carvalho') {
-        message.reply('Opa! Como posso lhe ajudar hoje?');
-      } else if (message.body === 'Obrigado Daniel!') {
-        message.reply('De nada! Precisando, estamos aí!');
-      }
-
-      // Funções do BOT
-      // Usando regex para extrair nome e valor
-      const regex = /\/update (.+?):\s*(\d+(?:[.,]\d+)?)/;
-      const match = message.body.match(regex);
-      
-      if (match) {
-        const nome = match[1].trim();
-        // Substitui ',' por '.' para garantir 
-        // que o valor decimal seja interpretado corretamente
-        const valor = parseFloat(match[2].replace(',', '.'));
+    // Funções do BOT
+    // Usando regex para extrair nome e valor
+    const regex = /\/update (.+?):\s*(\d+(?:[.,]\d+)?)/;
+    const match = message.body.match(regex);
     
-        console.log("Nome:", nome);
-        console.log("Valor:", valor);
+    if (match) {
+      const nome = match[1].trim();
+      // Substitui ',' por '.' para garantir 
+      // que o valor decimal seja interpretado corretamente
+      const valor = parseFloat(match[2].replace(',', '.'));
+  
+      console.log("Nome:", nome);
+      console.log("Valor:", valor);
 
-        // Atualiza a lista
-        await atualizarOuAdicionarItem(nome, valor);
-        // Ordenar a lista
-        await ordenarArquivoJSON();
-        // Manda a mensagem formatada para o grupo
-        const returnMessage = await formatarMensagem();
-        message.reply(returnMessage);
-
-      }
+      // Atualiza a lista
+      await atualizarOuAdicionarItem(nome, valor);
+      // Ordenar a lista
+      await ordenarArquivoJSON();
+      // Manda a mensagem formatada para o grupo
+      const returnMessage = await formatarMensagem();
+      message.reply(returnMessage);
     }
 });
 
