@@ -1,0 +1,14 @@
+[
+  {
+    "sender": "Pessoa",
+    "text": "Oi, como você está?"
+  },
+  {
+    "sender": "Você",
+    "text": "Estou bem, obrigado! E você?"
+  },
+  {
+    "sender": "Pessoa",
+    "text": "Também estou bem, obrigada!"
+  }
+]

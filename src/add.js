@@ -1,9 +1,9 @@
-const fs = require('fs-extra');
+import fs from 'fs-extra';
 
 const filePath = 'ranking.json';
 
 // Função para atualizar ou adicionar item no arquivo JSON
-async function atualizarOuAdicionarItem(name, value) {
+export default async function atualizarOuAdicionarItem(name, value) {
     try {
         // Ler o conteúdo do arquivo JSON
         const data = await fs.readFile(filePath, 'utf8');
@@ -36,5 +36,3 @@ async function atualizarOuAdicionarItem(name, value) {
         console.error('Erro ao atualizar ou adicionar item:', err);
     }
 }
-
-module.exports = atualizarOuAdicionarItem;

@@ -1,11 +1,11 @@
-const fs = require('fs-extra');
-const _ = require('lodash');
+import fs from 'fs-extra';
+import _ from 'lodash';
 
 // Caminho para o arquivo JSON
 const filePath = 'ranking.json';
 
 // Função para ler e ordenar o arquivo JSON
-async function ordenarArquivoJSON() {
+export default async function ordenarArquivoJSON() {
   try {
     // Ler o conteúdo do arquivo JSON
     const data = await fs.readFile(filePath, 'utf8');
@@ -22,5 +22,3 @@ async function ordenarArquivoJSON() {
     console.error('Erro ao ordenar e salvar o arquivo:', err);
   }
 }
-
-module.exports = ordenarArquivoJSON;

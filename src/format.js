@@ -1,9 +1,9 @@
-const fs = require('fs-extra');
+import fs from 'fs-extra';
 
 const filePath = 'ranking.json';
 
 // Função para ler o arquivo JSON e formatar a saída
-async function formatarMensagem() {
+export default async function formatarMensagem() {
   let message = "";
   try {
     // Ler o conteúdo do arquivo JSON
@@ -28,5 +28,3 @@ async function formatarMensagem() {
     return "";
   }
 }
-
-module.exports = formatarMensagem;
