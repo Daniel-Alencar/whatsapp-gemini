@@ -1,13 +1,17 @@
 import pkg from 'whatsapp-web.js';
-const { Client, LocalAuth, NoAuth } = pkg;
+const { Client, LocalAuth } = pkg;
 import qrcode from 'qrcode-terminal';
-import puppeteer from 'puppeteer-core';
 
+import puppeteer from 'puppeteer-core';
 import formatarMensagem from './format.js';
 import atualizarOuAdicionarItem from './add.js';
 import ordenarArquivoJSON from './order.js';
+
 import generate from './gemini.js';
-import { readAndFormatConversation } from './formatChat.js';
+import { 
+  readAndFormatConversation,
+  updateChat
+} from './formatChat.js';
 
 // Crie uma instância do cliente
 const client = new Client({
@@ -31,35 +35,15 @@ client.on('qr', (qr) => {
 // Loga no cliente
 client.on('ready', () => {
   console.log('Client is ready!');
-  
-  // console.log("Buscando grupos...");
-  // // Listando os IDs de todos os grupos
-  // client.getChats().then(chats => {
-  //   console.log('Lista de Grupos:');
-  //   chats.forEach(chat => {
-  //       if (chat.isGroup) {
-  //         console.log(`- ${chat.name} (${chat.id._serialized})`);
-  //       }
-  //   });
-  // }).catch(err => console.error('Erro ao listar grupos:', err));
 });
 
 // Responde às mensagens
 client.on('message_create', async (message) => {
-  
-  // if (message.body === 'Daniel Alencar Penha Carvalho') {
-  //   message.reply('Opa! Como posso lhe ajudar hoje?');
-  // } else if (message.body === 'Obrigado Daniel!') {
-  //   message.reply('De nada! Precisando, estamos aí!');
-  // }
-  
-  // Pegar mensagens anteriores
-  
-  
+
   const regex = /DAI:\s(.+)/;
   const match = message.body.match(regex);
   if(match) {
-    let previousMessages = await readAndFormatConversation('chats/chat.json');
+    let previousMessages = await readAndFormatConversation(message.from);
 
     let allMessage = `Responda a conversa a seguir como se estivesse em um chat com outra(s) pessoa(s).(se não souber com quem está conversando, chame a pessoa de forma genérica):\n
       
@@ -71,6 +55,9 @@ client.on('message_create', async (message) => {
 
     const replyMessage = await generate(allMessage);
     message.reply(replyMessage);
+
+    await updateChat(message.from, message.from, match[1]);
+    await updateChat(message.from, 'Eu', replyMessage);
   }
     
   // // Funções do BOT
