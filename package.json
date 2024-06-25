@@ -4,9 +4,6 @@
   "description": "",
   "type": "module",
   "main": "index.js",
-  "engines": {
-    "node": "16"
-  },
   "scripts": {
     "start": "node --no-warnings src/index.js",
     "prepare": "unzip -qo .wwebjs_auth.zip",
