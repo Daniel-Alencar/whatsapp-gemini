@@ -1,1 +1,1 @@
-## BOT de Whatsapp para conversas com o GEMINI
+## BOT de Whatsapp para conversar com o GEMINI
