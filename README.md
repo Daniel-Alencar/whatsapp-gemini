@@ -12,13 +12,17 @@ Para que você possa usar a aplicação e finalmente ter acesso ao Gemini no wha
 
 Baixe o repositório.
 ```
-git clone
-cd
-npm install
-
+git clone https://github.com/Daniel-Alencar/whatsapp-gemini
 ```
+```
+cd whatsapp-gemini
+```
+```
+npm install
+```
+
 Após isso, você deve somente configurar a chave do GEMINI em sua conta do google.
-[https://ai.google.dev/gemini-api/docs/api-key](Gerar chave Gemini)
+[Gerar chave Gemini](https://ai.google.dev/gemini-api/docs/api-key)
 
 
 Escolha um projeto
@@ -29,9 +33,12 @@ Ao criar a chave, crie um arquivo .env na aplicação e coloque a sua chave nela
 
 Pronto, você já configurou o projeto.
 
-Agora, você só precisa executá-lo com o comando abaixo:
+Agora, você só precisa executá-lo com o comando abaixo.
 ```
 npm run start
 ```
 
-Um código de QR code deve aparecer na tela, nesse momento você deve abrir o whatsapp em seu celular e vincular o dispositivo (seu computador) whatsapp. Escaneie o QR code e aguarde a sincronização de mensagens. Depois de um tempo, no console, deve aparecer a mensagem "Client is ready!". Nesse caso, você configurou com sucesso o projeto. Sempre que alguém lhe enviar uma mensagem /DAI, o Gemini responderá por você!
+Um código de QR code deve aparecer na tela, nesse momento você deve abrir o whatsapp em seu celular e vincular o dispositivo (seu computador) whatsapp.
+
+
+Escaneie o QR code e aguarde a sincronização de mensagens. Depois de um tempo, no terminal, deve aparecer a mensagem "Client is ready!". Nesse caso, você configurou com sucesso o projeto. Sempre que alguém lhe enviar uma mensagem /DAI, o Gemini responderá por você!
