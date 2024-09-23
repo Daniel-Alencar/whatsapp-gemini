@@ -68,3 +68,7 @@ Escaneie o QR code e aguarde a sincronização de mensagens. Depois de um tempo,
 
 ## Uso da aplicação
 
+No momento que alguém mandar uma mensagem para você ou em algum grupo que você esteja, o gemini irá responder por você.
+<p style="display: flex; flex-wrap: wrap;">
+  <img width="300" alt="Gemini" title="#Gemini" src="./assets/GEMINI.jpeg" />
+</p>
