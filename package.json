@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node --no-warnings src/index.js",
+    "start": "node --no-deprecation src/index.js",
     "prepare": "unzip -qo .wwebjs_auth.zip",
     "build": "npm run clean && npm run copy",
     "clean": "rm -rf dist",
@@ -24,6 +24,7 @@
     "fs-extra": "^11.2.0",
     "lodash": "^4.17.21",
     "node-fetch": "^3.3.2",
+    "punycode": "^2.3.1",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.24.0"
   }
